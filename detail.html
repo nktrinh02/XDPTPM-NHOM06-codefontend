@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="image/logo.ico">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+    <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.2/js/toastr.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="js/main.js"></script>
+    <script src="js/product.js"></script>
+    <script src="js/cart.js"></script>
+    <script>
+        window.onload = function() {
+            loadMenu();
+            loadCTSanPhamTrangDetail();
+            sanPhamLienQuan();
+        }
+    </script>
+</head>
+<body>
+<div id="menu">
+</div>
+
+<div class="container contentpage">
+    <div class="row contentdetailproduct">
+        <div class="col-lg-4 col-md-5 col-sm-12 col-12">
+            <img onclick="setAnhPreview(this)" id="imgdetailpro" src="image/ao.jpg" data-bs-toggle="modal" data-bs-target="#modalimage" class="imgdetailpro">
+            <div class="listimgdetail row" id="listimgdetail">
+                <div class="col-lg-2 col-md-2 col-sm-2 col-2 singdimg">
+                    <img onclick="clickImgdetail(this)" src="image/ao.jpg" class="imgldetail imgactive">
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-7 col-sm-12 col-12">
+            <span class="detailnamepro" id="detailnamepro">Áo phong thanh lý</span>
+            <span class="danhmucsp">Danh mục: <span id="tendanhmuc"></span></span>
+            <span class="titledetail">Giá bán: <span class="pricedetail" id="pricedetail">269.000đ</span></span>
+            <span class="titledetail">Thông tin liên hệ</span>
+            <ul class="listlienhe" id="listlienhe">
+                <li><a href=""><i class="fa fa-facebook-official"></i> Xem facebook người bán</a></li>
+                <li><a href=""><i class="fa fa-instagram"></i> Xem instagram người bán</a></li>
+                <li><a href=""><i class="fa fa-phone"></i> Liên lạc với người bán</a></li>
+            </ul>
+            
+            <button id="btnthemgiohang" class="btn btn-primary"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ hàng</button>
+        </div>
+        <div class="col-lg-4 col-md-12 col-sm-12 col-12">
+            <p class="titledes">Sản phẩm liên quan</p>
+            <div class="row" id="listProductGy">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-6">
+                    <a href="" class="linkpro">
+                        <div class="singlepro">
+                            <div class="productsold"><span class="reviewsp">Đã bán</span></div>
+                            <img src="image/ao.jpg" class="imgpro">
+                            <span class="proname">Áo thun nam thanh lý</span>
+                            <span class="proprice">Giá: 499.000đ</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12 motasp" style="margin-top: 50px;">
+            <p class="titledes">Mô tả sản phẩm</p>
+            <div id="descriptiondetail">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modalimage" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <img src="" id="anhpre" style="width: 100%;">
+        </div>
+      </div>
+    </div>
+  </div>
+<div id="footer">
+</div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="js/carousel.js"></script>
+<script>
+    function setAnhPreview(e){
+        document.getElementById("anhpre").src = e.src
+    }
+</script>
+</html>

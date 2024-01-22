@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="image/logo.ico">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+    <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.2/js/toastr.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="js/main.js"></script>
+    <script src="js/account.js"></script>
+    <script src="js/product.js"></script>
+    <script src="js/exchange.js"></script>
+    <script>
+        window.onload = function() {
+            loadMenu();
+            loadThongTin();
+            myProduct();
+            myProductTraoDoi();
+        }
+    </script>
+</head>
+<body>
+<div id="menu">
+</div>
+
+<div class="container contentpage">
+    <div class="row cartbds">
+        <div class="col-lg-2 col-md-3 col-sm-12 col-12 collistcart">
+            <div class="navleft">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-6 col-6 sinv">
+                        <div onclick="changeLink(this,'infor')" class="tabdv activetabdv">
+                            <a class="btn btn-primary form-control" data-toggle="tab" href="#infor">Thông tin tài khoản</a>
+                        </div>
+                        <div onclick="changeLink(this,'myproduct')" class="tabdv">
+                            <a class="btn btn-primary form-control" data-toggle="tab" href="#myproduct">Sản phẩm bán</a>
+                        </div>
+                        <div onclick="changeLink(this,'sptraodoi')" class="tabdv">
+                            <a class="btn btn-primary form-control" data-toggle="tab" href="#sptraodoi">Sản phẩm trao đổi</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-10 col-md-9 col-sm-12 col-12 collistcart">
+            <div class="navright">
+                <div class="tab-content contentab">
+                    <div role="tabpanel" class="tab-pane active" id="infor">
+                        <div class="headeraccount">
+                            <span class="titleaccount">Thông tin tài khoản</span>
+                        </div>
+                        <div class="row singleadd">
+                            <div class="col-lg-11 col-md-11 col-sm-12 col-12">
+                                <table class="table tableadd">
+                                    <tr>
+                                        <td class="tdleft">Họ tên:</td>
+                                        <td class="tdright"><input id="fullname" type="text" class="form-control"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="tdleft">Địa chỉ:</td>
+                                        <td class="tdright"><input id="address" type="text" class="form-control"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="tdleft">Số điện thoại:</td>
+                                        <td class="tdright"><input id="phone" type="text" class="form-control"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="tdleft">Link facebook:</td>
+                                        <td class="tdright"><input id="linkFace" type="text" class="form-control"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="tdleft">Ảnh đại diện:</td>
+                                        <td class="tdright">
+                                            <input id="avatar" type="file" class="form-control">
+                                            <input id="linkavatar" type="hidden" class="form-control">
+                                            <img id="avatarbn" src="" class="imgaccountavt">
+                                        </td>
+                                    </tr>
+                                </table>
+                                <button onclick="updateInfor()" type="submit" class="btn btn-warning" style="width: 50%;">LƯU</button><br><br>
+                            </div>
+                        </div>
+                        <div class="headeraccount">
+                            <span class="titleaccount">Đổi mật khẩu</span>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-12 passacc">
+                            <form action="javascript:changePassword()">
+                                <label class="lbacc">Mật khẩu hiện tại *</label>
+                                <input id="oldpass" type="password" class="form-control">
+                                <label class="lbacc">Mật khẩu mới *</label>
+                                <input id="newpass" type="password" class="form-control">
+                                <label class="lbacc">Xác nhận mật khẩu mới *</label>
+                                <input id="renewpass" type="password" class="form-control"><br>
+                                <button type="submit" class="btn btn-warning form-control">LƯU</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="myproduct">
+                        <table class="table table-striped tablefix">
+                            <thead class="thead-tablefix">
+                                <tr>
+                                    <th>Mã sp</th>
+                                    <th>Ảnh</th>
+                                    <th>Tên sản phẩm</th>
+                                    <th>Giá tiền</th>
+                                    <th>Ngày đăng</th>
+                                    <th>Trạng thái</th>
+                                    <th>Thông tin liên lạc</th>
+                                    <th>Loại sản phẩm</th>
+                                    <th class="sticky-col">Hành động</th>
+                                </tr>
+                            </thead>
+                            <tbody id="listproduct">
+                            </tbody>
+                        </table>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="sptraodoi">
+                        <table class="table table-striped tablefix">
+                            <thead class="thead-tablefix">
+                                <tr>
+                                    <th>Mã sp</th>
+                                    <th>Ảnh</th>
+                                    <th>Tên sản phẩm</th>
+                                    <th>Giá tiền</th>
+                                    <th>Ngày đăng</th>
+                                    <th>Trạng thái</th>
+                                    <th>Thông tin liên lạc</th>
+                                    <th>Loại sản phẩm</th>
+                                    <th class="sticky-col">Hành động</th>
+                                </tr>
+                            </thead>
+                            <tbody id="listproductTraoDoi">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Danh sách yêu cầu trao đổi</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-8">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Sản phẩm muốn đổi</th>
+                                <th>Ngày gửi</th>
+                                <th>Họ tên</th>
+                                <th>Số điện thoại</th>
+                                <th>Địa chỉ</th>
+                            </tr>
+                        </thead>
+                        <tbody id="listexchange">
+                            
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-4">
+                    <div class="row" id="divdetail" style="display: none;">
+                        <h3>Danh sách ảnh</h3>
+                        <div class="row" id="dsanhexchange">
+                            <div class="col-6">
+                                <img src="" class="anhexchange">
+                            </div>
+                        </div>
+                        <h3 style="margin-top: 30px;">Mô tả</h3>
+                        <div id="motaexchange">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="modalimage" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <img src="" id="anhpre" style="width: 100%;">
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div id="footer">
+</div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="js/carousel.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script>
+    function changeLink(e, link) {
+        var tabs = document.getElementsByClassName("tabdv");
+        for (i = 0; i < tabs.length; i++) {
+            document.getElementsByClassName("tabdv")[i].classList.remove("activetabdv");
+        }
+        e.classList.add('activetabdv')
+
+        var tabb = document.getElementsByClassName("tab-pane");
+        for (i = 0; i < tabb.length; i++) {
+            document.getElementsByClassName("tab-pane")[i].classList.remove("active");
+        }
+        document.getElementById(link).classList.add('active')
+    }
+
+    var hash = location.hash.substr(1);
+    if (hash != "") {
+        var tabb = document.getElementsByClassName("tab-pane");
+        for (i = 0; i < tabb.length; i++) {
+            document.getElementsByClassName("tab-pane")[i].classList.remove("active");
+        }
+        var tabs = document.getElementsByClassName("tabdv");
+        for (i = 0; i < tabs.length; i++) {
+            document.getElementsByClassName("tabdv")[i].classList.remove("activetabdv");
+        }
+        document.getElementById(hash).classList.add('active')
+    }
+</script>
+</html>
